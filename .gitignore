@@ -1,0 +1,13 @@
+.env
+data/processed/1issue_summary.xlsx
+data/processed/authentication_issues.csv
+data/processed/issue_summary.csv
+data/processed/issue_summary.xlsx
+data/processed/performance_issues.csv
+data/processed/reviews.csv
+data/raw/reviews_raw.csv
+src/__pycache__/transform.cpython-313.pyc
+src/__pycache__/store.cpython-313.pyc
+src/__pycache__/extract.cpython-313.pyc
+src/__pycache__/enrich.cpython-313.pyc
+src/utils.py
