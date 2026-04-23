@@ -13,7 +13,6 @@ def transform_reviews(raw_reviews, config):
     df["text_clean"] = df["text"].str.lower()
     df["review_date"] = pd.to_datetime(df["timestamp"]).dt.date
 
-    # 🔥 DATE FILTER (from config)
     if config.get("start_date") and config.get("end_date"):
         start = pd.to_datetime(config["start_date"]).date()
         end = pd.to_datetime(config["end_date"]).date()
