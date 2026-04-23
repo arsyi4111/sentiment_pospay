@@ -2,10 +2,10 @@
   "app_id": "com.posindonesia.giropos",
   "country": "id",
   "language": "id",
-  "max_reviews": 200,
+  "max_reviews": 1500000,
   "batch_size": 10,
   "ai_enabled": true,
   "output_format": "csv",
-  "start_date": "2026-01-01",
+  "start_date": "2024-01-01",
   "end_date": "2026-12-31"
 }

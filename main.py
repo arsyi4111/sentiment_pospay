@@ -29,16 +29,26 @@ def run_pipeline():
     raw_reviews = fetch_reviews(config)
     df = transform_reviews(raw_reviews, config)
 
+    # 🔥 NEW: Confirmation step
+    total_reviews = len(df)
+    print(f"\nThere are {total_reviews} reviews detected.")
+
+    proceed = input("Do you want to continue analysis? (y/n): ").strip().lower()
+
+    if proceed != "y":
+        print("Analysis cancelled.")
+        return
+
+    # Continue AI processing
     if config["ai_enabled"]:
         ai_results = enrich_dataframe(df, config["batch_size"])
 
         df["sentiment"] = [r["sentiment"] for r in ai_results]
         df["issues"] = [r["issues"] for r in ai_results]
-        df["summary"] = [r["summary"] for r in ai_results]
 
-    save_data(df, "data/processed/reviews.csv")
+    save_data(df, "data/processed/24to26_pospayreviews.csv")
     raw_df = pd.DataFrame(raw_reviews)
-    save_data(raw_df, "data/raw/reviews_raw.csv")
+    save_data(raw_df, "data/raw/24to26_pospayreviews_raw.csv")
 
     print("Pipeline completed.")
 

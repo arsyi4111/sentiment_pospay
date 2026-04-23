@@ -14,13 +14,12 @@ def build_prompt(batch_texts):
     return f"""
 Anda menganalisa ulasan aplikasi.
 
-Funtuk setiap ulasan, berikan dalam JSON STRICTLY DALAM BAHASA INDONEWSIA format berikut:
+Funtuk setiap ulasan, berikan dalam JSON STRICTLY DALAM BAHASA INDONESIA format berikut:
 
 [
   {{
     "sentiment": "positive | neutral | negative",
-    "issues": ["list of issues"],
-    "summary": "short summary"
+    "issues": ["list of issues"]
   }}
 ]
 
