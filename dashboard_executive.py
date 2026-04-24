@@ -1,17 +1,22 @@
 import ast
 import html
 import os
+import sys
 
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
 
+def get_path(relative_path):
+    if hasattr(sys, "_MEIPASS"):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(os.path.dirname(__file__), relative_path)
 
 DATA_OPTIONS = {
-    "Latest pipeline output": "data/processed/reviews.csv",
-    "POSPAY 2024-2026": "data/processed/24to26_pospayreviews.csv",
-    "BNI benchmark": "data/processed/BNIreviews.csv",
+    "Latest pipeline output": get_path("data/processed/reviews.csv"),
+    "POSPAY 2024-2026": get_path("data/processed/24to26_pospayreviews.csv"),
+    "BNI benchmark": get_path("data/processed/BNIreviews.csv"),
 }
 
 SENTIMENT_ORDER = ["negative", "neutral", "positive"]
